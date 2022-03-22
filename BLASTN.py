@@ -1,3 +1,6 @@
+# Created by: Shahiel Maassen
+# Created Date: 22-3-2022
+# Version: 1.0
 from Bio.Blast import NCBIWWW
 
 
@@ -63,6 +66,8 @@ def blasten(l_seq, xmlbestand):
                 out_handle.write(result_handle.read())
             print("eind", index)
             index += 1
+
+
     except MemoryError:
         print("De operator is out of memory in de functie blasten")
     except NameError:
