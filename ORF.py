@@ -3,7 +3,7 @@ def finding_ORF(seq):
     stop codon in a giffen sequence
 
     :return:
-    ORFs - List - List with lengths of the ORF and the ORF sequences
+    ORFs - List - List with ORF sequences
     """
     ORFs = []
     seq = seq.upper()
