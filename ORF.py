@@ -1,5 +1,5 @@
 def finding_ORF(seq):
-    """Searching for Open Reading Frames (ORF's)from amino acid till
+    """Searching for Open Reading Frames (ORF's) from amino acid till
     stop codon in a giffen sequence
 
     :return:
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     seq = "AGCCATGTAGCTAACTCAGGTTACATGGGGATGACCCCGCGACTTG" \
           "GATTAGAGTCTCTTTTGGAATAAGCCTGAATGATCCGAGTAGCATCTCAG"
     stop_codon = ["TTA", "TGA", "TAG"]
-    start_codon = ["ATG", "TTT", "TTC", "TTA", "TTG", "CTT", "CTC",
+    start_codon = ["ATG", "TTT", "TTC", "TTG", "CTT", "CTC",
                    "CTA", "CTG", "ATT", "ATC", "ATA", "GTT", "GTC",
                    "GTA", "GTG", "TCT", "TCC", "TCA", "TCG", "CCT",
                    "CCC", "CCA", "CCG", "ACT", "ACC", "ACA", "ACG",
@@ -33,5 +33,5 @@ if __name__ == '__main__':
                    "CGT", "CGC", "CGA", "CGG", "AGT", "AGC", "AGA",
                    "AGG", "GGT", "GGC", "GGA", "GGG"]
     finding_ORF(seq)
-    print()
+
 

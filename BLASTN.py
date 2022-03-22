@@ -511,7 +511,7 @@ blast_records = list(blast_records)
 
 E_VALUE_THRESH = 0.04
 for alignment in blast_record.alignments:
-    for hsp in alignment.hsps:
+    for hsp in alignment.hsps:lengths of the ORF and the
         if hsp.expect < E_VALUE_THRESH:
             print("****Alignment****")
             print("sequence:", alignment.title)
