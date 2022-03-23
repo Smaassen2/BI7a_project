@@ -1,39 +1,42 @@
-#
+# Created By: Tosca Frederiks
+# Created Date: 21 march 2022
 # Version: 1.0
-#
+# Searching for ORF's from amino acid till stop codon in the
+# given sequence
 
-def finding_ORF(seq):
+def finding_ORF(sequence):
     """Searching for Open Reading Frames (ORF's) from amino acid till
     stop codon in a giffen sequence
 
     :return:
-    ORFs - List - List with ORF sequences
+    orfs - List - List with ORF sequences
     """
     # creats a new list to safe the ORF's
-    ORFs = []
+    orfs = []
     # puts the sequence in capital letters
-    seq = seq.upper()
+    sequence = sequence.upper()
     stop = False
-    for i in range(0, len(seq), 3):
-        codon1 = seq[i:i+3]
-        # checks if the 3 letters together are in the start_codon list
-        if codon1 in start_codon:
-            position1 = i
-            # checks if it found a start codon where the stop_codon in
-            # the same frame is
-            while stop is False:
-                for j in range(position1, len(seq), 3):
-                    codon2 = seq[j:j+3]
-                    if codon2 in stop_codon:
-                        stop = True
-                        position2 = j
-                        if len(seq[position1:position2+3]) > 30:
-                            ORFs.append(seq[position1:position2+3])
+    try:
+        for i in range(0, len(sequence), 3):
+            codon1 = sequence[i:i + 3]
+            # checks if the 3 letter codons are in the start_codon list
+            if codon1 in start_codon:
+                position1 = i
+                # checks if it found a start codon where the stop_codon
+                # in the same frame is
+                while stop is False:
+                    for j in range(position1, len(sequence), 3):
+                        codon2 = sequence[j:j + 3]
+                        if codon2 in stop_codon:
+                            stop = True
+                            position2 = j
+                            orfs.append(sequence[position1:position2+3])
+            elif codon1 in stop_codon:
+                break
+    except TypeError:
+        print("Deze sequentie is geen DNA sequentie.")
 
-        elif codon1 in stop_codon:
-            break
-
-    return ORFs
+    return orfs
 
 
 if __name__ == '__main__':
