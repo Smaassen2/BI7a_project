@@ -3,46 +3,49 @@
 # Version: 1.0
 from Bio.Blast import NCBIWWW
 
-class BLAST:
 
-    def blasten(ORF_list):
-        """Iedere sequentie in de lijst wordt geblast door middel van
-        qblast. De gebruikte blast is Blastn. De gebruikte database is
-        non-redundant database. De gebruikte filters zijn een e_value filter
-        en hoeveelheid hits. Alle hits zijn hierna toegevoegd aan een XML
-        bestand.
-        :param tsvbestand: file
-        :param l_seq: list
-        :return: Alle data van de sequenties in een XML bestand
+class BLAST:
+    def blasts(list_of_orfs):
+        """Every seq in the list will be blast by using qblast. The
+        used blast is BLASTN. The used filters are a e_value filter and
+        the amount of hits. All hits will be add to a XML file.
+
+        :param
+        list_of_orfs - List - List with ORFs
+
+        :return:
+        xmlfile - xml file - file with all data of the ORFs.
         """
         try:
             index = 0
-            # Loopt door iedere sequentie in de sequentie lijst heen
-            for sequence in ORF_list:
+            # Loop through all the sequences in the list_of_orfs
+            for sequence in list_of_orfs:
                 print("Start", index)
                 print("Start BLAST...")
-                # Blasten van iedere sequentie tegen de non-redunant
+                # Blast of all the sequences against the non-redunant
                 # database
                 result_handle = NCBIWWW.qblast("blastn", "nr", sequence,
-                                               expect=0.01, hitlist_size=10)
-                print("BLAST resultaat in variabele")
-                xmlbestand = "Resultaten.xml"
-                # Append de data in een XML bestand
-                with open(xmlbestand, "a") as out_handle:
+                                               expect=0.01,
+                                               hitlist_size=10)
+                print("BLAST results in variable")
+                xmlfile = "Resultats.xml"
+                # Append all the data to the XML file
+                with open(xmlfile, "a") as out_handle:
                     out_handle.write(result_handle.read())
-                print("eind", index)
+                # prints that the job is done for that specific seq
+                print("The end", index)
                 index += 1
 
-
         except MemoryError:
-            print("De operator is out of memory in de functie blasten")
+            print("The operator has no memory left in the function "
+                  "blasts")
         except NameError:
-            print("Functienaam of variabelenaam bestaat niet in de functie"
-                  "blasten")
+            print("Job name or variable name does not exist in the "
+                  "function blasts")
         except TypeError:
-            print("Een of meer variabelen in de functie blasten "
-                  "heeft/hebben niet de correcte variabele type(n).")
+            print("One or more variables in the function blasts does "
+                  "not have the correct variable type(s).")
         except SyntaxError:
-            print("Er is een invalide syntax gevonden in de functie "
-                  "blasten")
+            print("An invalid syntax has been found in the function "
+                  "blasts")
 
