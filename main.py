@@ -10,4 +10,3 @@ if __name__ == '__main__':
     print(ORF_list)
     # call the class BLASTN
     BLAST.blasten(ORF_list)
-
