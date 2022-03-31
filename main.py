@@ -1,4 +1,4 @@
-# Created by: Shahiel Maassen
+# Created by: Shahiel Maassen & Tosca Frederiks
 # Created Date: 22-3-2022
 # Version: 9.0
 # Calling on all the classes at the correct time with the correct
