@@ -1,8 +1,8 @@
 # Created By: Tosca Frederiks
-# Created Date: 21 march 2022
-# Version: 1.0
+# Created Date: 22-03-2022
+# Version: 9.0
 # Searching for ORF's from amino acid till stop codon in the
-# given seq
+# given seq.
 
 class ORF1:
     def finding_ORF(sequence):

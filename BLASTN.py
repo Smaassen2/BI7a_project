@@ -1,6 +1,7 @@
 # Created by: Shahiel Maassen
-# Created Date: 22-3-2022
-# Version: 1.0
+# Created Date: 22-03-2022
+# Version: 9.0
+# The found ORFs in the created ORF list will be blast using qblast
 from Bio.Blast import NCBIWWW
 
 
